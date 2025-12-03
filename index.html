@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mobile Code Editor</title>
+    <link rel="stylesheet" href="./style.css">
+    <!-- PrismJS Theme for Syntax Highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Tab Navigation -->
+        <nav class="tabs" id="tabs-nav">
+            <!-- Dynamic tabs inserted here -->
+            <button id="add-file-btn" class="tab-btn special-tab" title="New File">+</button>
+            <button class="tab-btn" data-target="preview" id="preview-tab">Output</button>
+        </nav>
+
+        <!-- Editor Container -->
+        <main class="content-area" id="main-area">
+            
+            <!-- Dynamic editors inserted here -->
+
+            <div id="preview" class="editor-pane hidden">
+                <iframe id="result-frame" sandbox="allow-scripts allow-modals"></iframe>
+            </div>
+
+        </main>
+        
+        <div class="status-bar">
+            <div class="file-controls">
+                <button id="import-btn" class="icon-btn" title="Import HTML"><img src="folder.svg" alt="Import"></button>
+                <button id="export-btn" class="icon-btn" title="Download HTML"><img src="save.svg" alt="Export"></button>
+                <button id="open-window-btn" class="icon-btn" title="Open in New Window"><img src="external.svg" alt="Pop-up"></button>
+                <button id="rename-btn" class="icon-btn" title="Rename File"><img src="edit.svg" alt="Rename"></button>
+                <button id="delete-btn" class="icon-btn" title="Delete File"><img src="delete.svg" alt="Delete"></button>
+            </div>
+            <span id="status-msg">Ready</span>
+            <button id="run-btn">Run ▶</button>
+        </div>
+    </div>
+
+    <!-- File Type Selection Modal -->
+    <div id="file-type-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>New File Type</h3>
+            <div class="modal-buttons">
+                <button class="modal-btn" data-type="html">HTML</button>
+                <button class="modal-btn" data-type="css">CSS</button>
+                <button class="modal-btn" data-type="js">JavaScript</button>
+                <button class="modal-btn" data-type="image">Image</button>
+            </div>
+            <button id="close-modal-btn" class="modal-close-btn">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Hidden File Input for Import -->
+    <input type="file" id="file-input" accept=".html" style="display:none">
+    <input type="file" id="image-input" accept="image/*" style="display:none">
+
+    <!-- Import Map for Modules -->
+    <script type="importmap">
+        {
+            "imports": {
+                "codejar": "https://esm.sh/codejar",
+                "prismjs": "https://esm.sh/prismjs"
+            }
+        }
+    </script>
+    <script type="module" src="./main.js"></script>
+</body>
+</html>
