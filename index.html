@@ -14,7 +14,7 @@
     <div class="app-container">
         <!-- Tab Navigation -->
         <nav class="tabs" id="tabs-nav">
-            <!-- Dynamic tabs inserted here -->
+            <div id="file-tabs-container" class="file-tabs-container"></div>
             <button id="add-file-btn" class="tab-btn special-tab" title="New File">+</button>
             <button class="tab-btn" data-target="preview" id="preview-tab">Output</button>
         </nav>
@@ -66,7 +66,8 @@
         {
             "imports": {
                 "codejar": "https://esm.sh/codejar",
-                "prismjs": "https://esm.sh/prismjs"
+                "prismjs": "https://esm.sh/prismjs",
+                "sortablejs": "https://esm.sh/sortablejs"
             }
         }
     </script>
