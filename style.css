@@ -38,6 +38,15 @@ body {
     overflow-x: auto; /* Allow scrolling */
 }
 
+.file-tabs-container {
+    display: flex;
+}
+
+.sortable-ghost {
+    opacity: 0.4;
+    background: rgba(255, 255, 255, 0.1);
+}
+
 .tab-btn {
     flex: 0 0 auto; /* Don't shrink */
     min-width: 80px;
